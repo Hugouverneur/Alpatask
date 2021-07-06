@@ -9,3 +9,19 @@ nav {
     margin: 0px;
     background-color: #FF835D;
 }
+
+.left_menu, .right_menu {
+    margin: 0px 12px;
+}
+
+.left_menu a, .right_menu a {
+    color: #FCFCFC;
+    font-family: viga;
+    text-decoration: none;
+    margin: 8px;
+    transition: ease 0.1s;
+}
+
+.left_menu a:hover, .right_menu a:hover {
+    color: #FAE8AC;
+}
