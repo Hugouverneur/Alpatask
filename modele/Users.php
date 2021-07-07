@@ -82,6 +82,19 @@ class Users {
         return($res);
     }
 
+    // Récupère les utilisateurs d'une société
+    public function getCompanyUsers($get_company_id) {
+        global $Db;
+
+        $sql = "SELECT *
+            FROM users
+            WHERE company_id = $get_company_id";
+
+        $req = $Db->query($sql);
+        $res = $req->fetchAll();
+        return($res);
+    }
+
 
 
 }

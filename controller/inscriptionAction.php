@@ -22,7 +22,8 @@ if(isset($_POST['user_email'])) {
         $users->addNewUser();
 
         ?><script>
-            alert('Utilisateur créé !')
+            alert('Utilisateur créé !');
+            window.location = "index.php?page=connexion";
         </script><?php
     }
     
