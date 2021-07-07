@@ -7,9 +7,15 @@ if($_SESSION['is_valid'] == TRUE) {
     $mytasks = new Tasks();
 
     if($groupid != "") {
-        $tasklist = $mytasks->getGroupTasksList($groupid);
+        $tasklist = $mytasks->getGroupTasksListInProgress($groupid);
     } else {
-        $tasklist = $mytasks->getUserTasksList($userid);
+        $tasklist = $mytasks->getUserTasksListInProgress($userid);
+        $taskcompleted = $mytasks->getUserTasksListCompleted($userid);
+    }
+
+    if(isset($_POST['task_id'])) {
+        $taskid = $_POST['task_id'];
+        $mytasks->endTask($taskid);
     }
     
     include './layouts/header.php';

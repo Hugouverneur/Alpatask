@@ -1,5 +1,6 @@
 /* CCS de la ferme d'alpaga */
 
+/* Zone de la ferme */
 .farm_zone {
     display: flex;
     justify-content: center;
@@ -10,6 +11,7 @@
     border: 5px solid #a9706b;
     border-radius: 12px;
     background-color: #98d282;
+    min-height: 64px;
 }
 
 .alpaga_img {
@@ -18,4 +20,26 @@
 
 .alpaga_img:hover {
     transform: rotate(-10deg);
+}
+
+/* Zone des stats */
+#stats_zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat_bloc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #E8E4DF;
+    flex-grow: 1;
+    margin: 12px;
+}
+
+.stat_bloc p {
+    font-family: viga;
+    font-size: 32px;
 }

@@ -19,9 +19,6 @@ $type = $_GET['action'];
 
 $page = ($page == '')? 'home' : $page;
 
-echo 'ma page : '.$page;
-var_dump($_SESSION);
-
 include('controller/'.$page.'Action.php');
 
 ?>

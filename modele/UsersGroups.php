@@ -62,6 +62,22 @@ class UsersGroups {
         $Db->query($sql);
     }
 
+    // Récupère le scrore total de l'utilisateur
+    public function getUserScore($session_user_id) {
+        global $Db;
+
+        $sql = "SELECT *, SUM(ug.group_user_score) AS total_score
+            FROM users_groups ug
+            JOIN users u
+                ON ug.user_id = u.user_id
+            WHERE ug.user_id = 4
+            GROUP BY ug.user_id";
+        
+        $req = $Db->query($sql);
+        $res = $req->fetch();
+        return($res);
+    }
+
 
 
 }
