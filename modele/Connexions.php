@@ -7,44 +7,52 @@ class Connexions {
     
     public final function __construct(){}
 
-    public function initFormPost(){
-
-        $this->login = $_POST['login'];
-        $this->password = $_POST['password'];
-
+    public function initFromPostConnection() {
+        $this->login = htmlspecialchars(addslashes($_POST['login']));
+        $this->password = htmlspecialchars(addslashes($_POST['password']));
     }
 
     // Compare les information saisie pas l'utilisateur
     public function UserLogin($connexion_login, $connexion_password){
         global $Db;
-        $sql = "SELECT * FROM users WHERE email = '$connexion_login' AND passe = '$connexion_password'";
+
+        // Trouve le bon login dans la base
+        $sql = "SELECT * 
+        FROM users
+        WHERE user_email = '$connexion_login'";
+
         $req = $Db->query($sql);
         $res = $req->fetch();
-        if($res == FALSE){
+        
+        // Vérifie si le mdp de la base (hash) correspond avec la saisie
+        if(password_verify($connexion_password, $res['user_password'])) {
+            $this->initSession($res);
+
+        } else {
             $this->deleteSession();
-            if($_POST['login'] != ''){
-                $alert = "L'e-mail ou le mot-de-passe est invalide !";
-                $this->alert = $alert;
+
+            if($_POST['login'] != '') {
+                $connexion_echoue = "L'e-mail ou le mot-de-passe est invalide !";
+                $this->connexion_echoue = $connexion_echoue;
+
             }
-            
+
             return(FALSE);
         }
-        else{
-            $this->InitSession($res);
-        };
-
     }
 
     // Initialiser les variables de sessions
-    public function InitSession($res){
-        
-        $_SESSION['login'] = $res['email'];
-        $_SESSION['pseudo'] = $res['pseudo'];
+    public function initSession($res) {
+
         $_SESSION['user_id'] = $res['user_id'];
-        $_SESSION['role'] = $res['role'];
-        $_SESSION['photo'] = $res['user_photo'];
+        $_SESSION['user_email'] = $res['user_email'];
+        $_SESSION['user_lastname'] = $res['user_lastname'];
+        $_SESSION['user_name'] = $res['user_name'];
+        $_SESSION['user_role_description'] = $res['user_role_description'];
+        $_SESSION['company_id'] = $res['company_id'];
         $_SESSION ['is_valid'] = TRUE;
 
+        // redirection vers la page home
         header('location:index.php?page=home');
 
     }

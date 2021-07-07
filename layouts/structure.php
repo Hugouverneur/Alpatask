@@ -8,6 +8,7 @@
     <!-- Fichiers CSS -->
     <link rel="stylesheet" href="/css/all_app.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/alpaca_farm.css">
 
     <!-- Fichiers JS -->
 

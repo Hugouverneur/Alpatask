@@ -38,7 +38,7 @@ define('PATH_PICTURE_MINI_ARTICLE',URL_ROOT.'/articles/pictures/mini');
 //configuration de la BDD
     define('DATABASE_HOST' , 'localhost:3306');
     define('DATABASE_TYPE' , 'mysql');
-    define('DATABASE_NAME' , 'blogcours');
+    define('DATABASE_NAME' , 'alpatasks');
     define('DATABASE_USERNAME' , 'root');
     define('DATABASE_PASSWORD' , '');
 
