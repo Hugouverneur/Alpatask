@@ -21,19 +21,19 @@ td {
     border: none !important;
 }
 
-#table_podium tbody tr:first-child {
+#table_podium .a1 {
     color: gold;
     font-family: viga;
     font-size: 22px;
 }
 
-#table_podium tbody tr:nth-child(2n) {
+#table_podium .a2 {
     color: gray;
     font-family: viga;
     font-size: 20px;
 }
 
-#table_podium tbody tr:nth-child(3n) {
+#table_podium .a3 {
     color: brown;
     font-family: viga;
     font-size: 18px;

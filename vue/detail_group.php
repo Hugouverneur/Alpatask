@@ -129,11 +129,11 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($classement as $position): ?>
-                        <td><?= $position['user_name']?></td>
-                        <td><?= $position['user_lastname']?></td>
-                        <td><?= $position['group_user_score']?></td>
-                        <td><?= $position['user_role_description']?></td>
+                <?php $count = 0; foreach($classement as $position): $count += 1?>
+                        <td class="a<?=$count?>"><?= $position['user_name']?></td>
+                        <td class="a<?=$count?>"><?= $position['user_lastname']?></td>
+                        <td class="a<?=$count?>"><?= $position['group_user_score']?></td>
+                        <td class="a<?=$count?>"><?= $position['user_role_description']?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

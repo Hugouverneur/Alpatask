@@ -85,11 +85,12 @@ class UsersGroups {
             FROM users_groups ug
             JOIN users u
                 ON ug.user_id = u.user_id
-            WHERE ug.user_id = 4
+            WHERE ug.user_id = $session_user_id
             GROUP BY ug.user_id";
-        
+
         $req = $Db->query($sql);
         $res = $req->fetch();
+
         return($res);
     }
 
@@ -103,12 +104,12 @@ class UsersGroups {
         return $res;
     }
 
-    public function updateScoreInfos($userid, $scoreinfo, $taskpoint) {
+    public function updateScoreInfos($userid, $scoreinfo, $taskpoint, $groupid) {
         global $Db;
         $total = $scoreinfo + $taskpoint;
         $sql = "UPDATE users_groups
                 SET group_user_score = $total
-                WHERE user_id = $userid";
+                WHERE user_id = $userid AND group_id = $groupid";
         $req = $Db->query($sql);
         $res = $req->fetch();
     }

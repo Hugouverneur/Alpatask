@@ -20,7 +20,11 @@
     
     <div class="farm_zone">
         <?php for($i=1; $i<=$nbr_alpaga; $i++): ?>
-            <img class="alpaga_img" src="./img/alpaga64px.png" alt="alpaga">
+            <?php if($i%10 == 0):?>
+                <img class="alpaga_img" src="./img/alpaga64pxgold.png" alt="alpaga">
+            <?php else:?>
+                <img class="alpaga_img" src="./img/alpaga64px.png" alt="alpaga">
+            <?php endif ?>
         <?php endfor; ?>
     </div>
 </main>

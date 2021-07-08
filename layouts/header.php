@@ -7,6 +7,7 @@
                 <a href="index.php?page=profile&user_id=<?= $_SESSION['user_id'] ?>">Mon profile</a>
                 <a href="index.php?page=my_groups&user_id=<?= $_SESSION['user_id'] ?>">Mes équipes</a>
                 <a href="?index&page=taches">Mes tâches</a>
+                <a href="?index&page=alpaca_farm">Mes alpagas</a>
             <?php endif ?>
         </div>
 

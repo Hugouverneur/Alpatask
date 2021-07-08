@@ -1,6 +1,5 @@
 <?php
 
-var_dump($_POST);
 if(isset($_POST['user_email'])) {
     $users = new Users();
     $user_exists = $users->userExists($_POST['user_email']);

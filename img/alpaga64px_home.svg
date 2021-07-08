@@ -1,14 +1,6 @@
-<main style="display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;">
-<h1 style="text-align: center;
-    font-size: 64px;
-    background-color: #fbb071;
-    border-radius: 10px;
-    padding: 4px 12px;">Alpatask</h1>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg style="width: 70%; text-align:center" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <path style="fill:#F6D76F;" d="M369.437,474.854V512h33.391v-37.146c-5.472-17.394-9.924-27.411-16.696-48.559
 	C378.435,447.443,375.096,460.8,369.437,474.854z"/>
@@ -74,5 +66,3 @@
 <g>
 </g>
 </svg>
-
-</main>
