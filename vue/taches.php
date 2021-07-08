@@ -41,62 +41,72 @@
         }
     }
 ?>
-<h1><?=$title?></h1>
-<a href="index.php?page=create_task<?=$link?>">Créer une tâche</a>
-<?php if(empty($tasklist)): ?>
-    <h2>Aucune tâches en cours</h2>
-    <?php else: ?>
-    <h4>Taches en cours</h4>
-    <table>
-        <thead>
-            <tr>
-                <th colspan="1" style="border: 1px solid; border-color: black">Description</th>
-                <th colspan="1" style="border: 1px solid; border-color: black">Difficulté</th>
-                <th colspan="1" style="border: 1px solid; border-color: black">Importance</th>
-                <th colspan="1" style="border: 1px solid; border-color: black">Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($tasklist as $task): ?>
-                <tr>
-                    <td style="border: 1px solid; border-color: black"><?= $task['task_description']?></td>
-                    <td style="border: 1px solid; border-color: black"><?= difficulty($task['task_difficulty'])?></td>
-                    <td style="border: 1px solid; border-color: black"><?= severity($task['task_severity'])?></td>
-                    <td style="border: 1px solid; border-color: black"><?= taskStatus($task['task_status'])?></td>
-                    <td style="border: 1px solid; border-color: black"><a href="index.php?page=modifier_tache&user_id=<?=$userid?>&task_id=<?=$task['task_id']?>">Modifier</a></td>
-                    <td style="border: 1px solid; border-color: black">
-                        <form action="index.php?page=taches&user_id=<?=$userid?>" method="POST">
-                            <input type="hidden" name="task_id" value="<?=$task['task_id']?>">
-                            <button type="submit">Terminer</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach ?> 
-        </tbody>
-    </table>
-<?php endif ?>
-<?php if(empty($taskcompleted)): ?>
-    <h2>Aucune tâches terminées</h2>
-    <?php else: ?>
-    <h4>Taches terminées</h4>
-    <table>
-        <thead>
-            <tr>
-                <th colspan="1" style="border: 1px solid; border-color: black">Description</th>
-                <th colspan="1" style="border: 1px solid; border-color: black">Difficulté</th>
-                <th colspan="1" style="border: 1px solid; border-color: black">Importance</th>
-                <th colspan="1" style="border: 1px solid; border-color: black">Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($taskcompleted as $task): ?>
-                <tr>
-                    <td style="border: 1px solid; border-color: black"><?= $task['task_description']?></td>
-                    <td style="border: 1px solid; border-color: black"><?= difficulty($task['task_difficulty'])?></td>
-                    <td style="border: 1px solid; border-color: black"><?= severity($task['task_severity'])?></td>
-                    <td style="border: 1px solid; border-color: black"><?= taskStatus($task['task_status'])?></td>
-                </tr>
-            <?php endforeach ?> 
-        </tbody>
-    </table>
-<?php endif ?>
+
+<main>
+
+
+    <h1><?=$title?></h1>
+    <a href="index.php?page=create_task<?=$link?>">Créer une tâche</a>
+    <div class="content_bloc">
+        <?php if(empty($tasklist)): ?>
+            <h2>Aucune tâches en cours</h2>
+            <?php else: ?>
+            <h4>Taches en cours</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="1">Description</th>
+                        <th colspan="1">Difficulté</th>
+                        <th colspan="1">Importance</th>
+                        <th colspan="1">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($tasklist as $task): ?>
+                        <tr>
+                            <td><?= $task['task_description']?></td>
+                            <td><?= difficulty($task['task_difficulty'])?></td>
+                            <td><?= severity($task['task_severity'])?></td>
+                            <td><?= taskStatus($task['task_status'])?></td>
+                            <td><a href="index.php?page=modifier_tache&user_id=<?=$userid?>&task_id=<?=$task['task_id']?>">Modifier</a></td>
+                            <td>
+                                <form action="index.php?page=taches&user_id=<?=$userid?>" method="POST">
+                                    <input type="hidden" name="task_id" value="<?=$task['task_id']?>">
+                                    <button type="submit">Terminer</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach ?> 
+                </tbody>
+            </table>
+        <?php endif ?>
+    </div>
+    
+    <div class="content_bloc" id="accordion">
+        <?php if(empty($taskcompleted)): ?>
+            <h2>Aucune tâches terminées</h2>
+            <?php else: ?>
+            <h4>Taches terminées</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="1">Description</th>
+                        <th colspan="1">Difficulté</th>
+                        <th colspan="1">Importance</th>
+                        <th colspan="1">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($taskcompleted as $task): ?>
+                        <tr>
+                            <td><?= $task['task_description']?></td>
+                            <td><?= difficulty($task['task_difficulty'])?></td>
+                            <td><?= severity($task['task_severity'])?></td>
+                            <td><?= taskStatus($task['task_status'])?></td>
+                        </tr>
+                    <?php endforeach ?> 
+                </tbody>
+            </table>
+        <?php endif ?>
+    </div>
+</main>

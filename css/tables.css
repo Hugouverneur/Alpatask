@@ -1,0 +1,40 @@
+/* CSS des tableaux */
+
+table {
+    width: 100%;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+thead {
+    text-align: left;
+}
+
+tbody {
+    border: 1px solid #E8E4DF;
+}
+
+th {
+    border: none !important;
+}
+
+td {
+    border: none !important;
+}
+
+#table_podium tbody tr:first-child {
+    color: gold;
+    font-family: viga;
+    font-size: 22px;
+}
+
+#table_podium tbody tr:nth-child(2n) {
+    color: gray;
+    font-family: viga;
+    font-size: 20px;
+}
+
+#table_podium tbody tr:nth-child(3n) {
+    color: brown;
+    font-family: viga;
+    font-size: 18px;
+}

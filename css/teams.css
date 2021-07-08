@@ -1,0 +1,31 @@
+/* CSS des équipes */
+
+.goup_card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FACEAA;
+    border-radius: 12px;
+    margin: 8px;
+    text-decoration: none;
+    color: black;
+    transition: ease 0.2s;
+}
+
+.goup_card:hover {
+    background-color: #FBB071;
+    color: black;
+}
+
+.goup_card div {
+    margin: 8px 16px;
+}
+
+.goup_card div p {
+    margin: 4px;
+}
+
+.group_card_title {
+    font-family: viga;
+    font-size: 18px;
+}

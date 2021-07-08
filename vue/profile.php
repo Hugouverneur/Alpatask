@@ -4,7 +4,6 @@
     <p><?= $user_data['user_email'] ?></p>
     <p><?= $user_data['user_role_description'] ?></p>
     <p><?= $user_data['user_score'] ?></p>
-    <p><?= $user_data['company_id'] ?></p>
 
     <a href="index.php?page=update_user&user_id=<?= $_GET['user_id'] ?>">Modifier</a>
 

@@ -2,8 +2,14 @@
     <h1>Mes groupes</h1>
     <div class="my_groups_list">
         <?php foreach($my_groups as $my_group): ?>
-            <a href="index.php?page=detail_group&group_id=<?= $my_group['group_id'] ?>" class="goup_bloc">
-                <p><?= $my_group['group_name'] ?> / <?= $my_group['company_name'] ?></p>
+            <a href="index.php?page=detail_group&group_id=<?= $my_group['group_id'] ?>" class="goup_card">
+                <div>
+                    <p class="group_card_title"><?= $my_group['group_name'] ?></p>
+                    <p><?= $my_group['company_name'] ?></p>
+                </div>
+                <div>
+                    
+                </div>
             </a>
         <?php endforeach; ?>
     </div>

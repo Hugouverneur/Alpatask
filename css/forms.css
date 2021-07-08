@@ -1,0 +1,23 @@
+/* CSS des formulaires */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input {
+    height: 24px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background-color: #E8E4DF;
+    border-radius: 4px;
+    margin: 0px 12px 12px 12px;
+}
+
+select {
+    height: 24px;
+    margin: 0px 12px 12px 12px;
+    
+}
