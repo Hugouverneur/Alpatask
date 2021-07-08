@@ -17,8 +17,6 @@ if($_SESSION['is_valid'] == TRUE) {
     $userid = $_SESSION['user_id'];
     $groupid = $_GET['group_id'];
 
-    $groups = $userclassement->getGroupMemberOf($userid);
-
     if($_GET['group_id'] != ""){
         $classement = $userclassement->getRankForGroup($groupid);
     }
@@ -26,7 +24,7 @@ if($_SESSION['is_valid'] == TRUE) {
     if(isset($_POST['task_id'])) {
         $taskid = $_POST['task_id'];
         $mytasks->endTask($taskid);
-
+        
         $taskinfos = $mytasks->getTaskInfos($taskid);
         $taskpoint = $taskinfos[0]['task_difficulty'];
         $taskdifficulty = $taskinfos['task_difficulty'];
@@ -35,6 +33,9 @@ if($_SESSION['is_valid'] == TRUE) {
         $getscoreinfo = $usersgroups->getScoreInfos($userid, $taskdifficulty, $groupid);
         $currentscore = $getscoreinfo['group_user_score'];
         $usersgroups->updateScoreInfos($userid, $currentscore, $taskpoint);
+        
+
+        header("location:index.php?page=detail_group&group_id=$groupid");
     }
 
     include './layouts/header.php';

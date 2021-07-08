@@ -84,11 +84,12 @@ class Users {
 
     // Récupère les utilisateurs d'une société
     public function getCompanyUsers($get_company_id) {
+        $userid = $_SESSION['user_id'];
         global $Db;
 
         $sql = "SELECT *
             FROM users
-            WHERE company_id = $get_company_id";
+            WHERE company_id = $get_company_id AND user_id <> $userid";
 
         $req = $Db->query($sql);
         $res = $req->fetchAll();

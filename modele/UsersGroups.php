@@ -53,6 +53,21 @@ class UsersGroups {
         return($res);
     }
 
+    #Récupère le classement des membres du groupe
+    public function getRankForGroup($groupid) {
+        global $Db;
+        $sql = "SELECT ug.group_user_score, u.user_name, u.user_lastname, u.user_role_description
+                FROM users_groups ug
+                INNER JOIN users u ON u.user_id = ug.user_id
+                WHERE ug.group_id = $groupid
+                ORDER BY ug.group_user_score DESC";
+
+        $req = $Db->query($sql);
+        $res = $req->fetchAll();
+
+        return $res;
+    }
+
     // Retire un utilisateur du groupe passé en argument
     public function delUserFromGroup($post_user_id) {
         global $Db;
@@ -78,8 +93,25 @@ class UsersGroups {
         return($res);
     }
 
+    public function getScoreInfos($userid, $difficulty, $groupid) {
+        global $Db;
+        $sql = "SELECT group_user_score FROM users_groups
+                WHERE user_id = $userid AND group_id = $groupid";
+        $req = $Db->query($sql);
+        $res = $req->fetch();
 
+        return $res;
+    }
 
+    public function updateScoreInfos($userid, $scoreinfo, $taskpoint) {
+        global $Db;
+        $total = $scoreinfo + $taskpoint;
+        $sql = "UPDATE users_groups
+                SET group_user_score = $total
+                WHERE user_id = $userid";
+        $req = $Db->query($sql);
+        $res = $req->fetch();
+    }
 }
 
 ?>
